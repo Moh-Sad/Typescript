@@ -1,0 +1,15 @@
+# Ignore the .vscode folder and its contents
+.vscode/
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore build output
+dist/
+build/
+
+# Ignore TypeScript cache
+*.tsbuildinfo
+
+# Ignore logs
+npm-debug.log*
