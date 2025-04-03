@@ -58,17 +58,17 @@ type Metric = 'cm' | 'inch';
 let metric: Metric = 'cm';
 
 // 9.Nullable Types
-function greet(name: string | null | undefined) {
+function greeting(name: string | null | undefined) {
     if (name)
         console.log(name.toUpperCase());
     else
         console.log('Hola!');
 }
 
-greet(null);
-greet(undefined);
-greet('Mosh');
-greet('');
+greeting(null);
+greeting(undefined);
+greeting('Mosh');
+greeting('');
 
 // 10.Optional Chaining
 type Customer = {
@@ -87,3 +87,32 @@ console.log(customer?.getCard?.()?.getFullYear());
 
 let log: any = null;
 log?.('a', 'b', 'c');
+
+// 11.Optional Parameters
+const addAll = (a: number, b: number, c?: number): number => {
+    if (c)
+        return a + b + c;
+    return a + b;
+}
+console.log(addAll(1, 2));
+console.log(addAll(1, 2, 3));
+
+// 12.Default Parameters
+const sumAll = (a: number, b: number, c: number = 0): number => {
+    return a + b + c;
+}
+console.log(sumAll(1, 2));
+
+// 13.Rest Parameters
+const total = (discount: number, ...prices: number[]): number => {
+    return prices.reduce((a, b) => a + b) * (1 - discount);
+}
+console.log(total(0.1, 20, 30, 40));
+console.log(total(0.1, 20, 30, 40, 50));
+
+// 14.Never Type
+function processEvents(): never {
+    while (true) {
+        console.log('Processing...');
+        }
+}
